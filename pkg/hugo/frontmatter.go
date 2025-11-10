@@ -153,6 +153,10 @@ func getAllStringItems(cfm *pageparser.ContentFrontMatter, fmKey string) ([]stri
 		if len(strarr) < 1 {
 			return nil, NewFMNotExistError(fmKey)
 		}
+		if len(strarr) > 5 {
+			strarr = strarr[0:5]
+			strarr[4] = "more..."
+		}
 		return strarr, nil
 
 	default:
